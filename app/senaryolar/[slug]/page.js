@@ -75,7 +75,6 @@ export default async function ScenarioPage({ params }) {
             ],
             verdict: "Sigara dumanı ve kokusuyla mücadele ediyorsanız, 'hava debisi' (CADR) her şeyden önemlidir. Philips 3200 genel denge için, Shark ise hız için en doğru kararlardır."
         },
-        // ... (Other scenarios added in implementation)
         "evcil-hayvanli-ev": {
             title: "Evcil Hayvanlı Ev",
             problem: "Tüy, koku ve alerjen yüküne odaklanılmalıdır. Uzun süreli açık kalmaya uygun, yüksek devirde verimli modeller seçilmelidir.",
@@ -194,19 +193,28 @@ export default async function ScenarioPage({ params }) {
             tier1_safe: [
                 {
                     name: "Daikin MC55W",
-                    reason: "19 dB ses seviyesiyle 'fısıltıdan daha sessiz' olarak bilinen en iyi yatak odası cihazıdır.",
+                    decision_headline: "19 dB ses seviyesiyle 'fısıltıdan daha sessiz' olarak bilinen en iyi yatak odası cihazıdır.",
+                    strength: "19 dB ses seviyesiyle 'fısıltıdan daha sessiz' olarak bilinen en iyi yatak odası cihazıdır.",
+                    limitation: "Yavaş hava debisi.",
+                    selection_rule: "Mutlak sessizlik arayanlar.",
                     slug: "daikin-mc55w"
                 },
                 {
                     name: "Philips 1000 AC1711",
-                    reason: "Uyku modu (Sleep Mode) ışık sönmesi ve fan yavaşlatma konusunda çok başarılıdır.",
+                    decision_headline: "Uyku modu (Sleep Mode) ışık sönmesi ve fan yavaşlatma konusunda çok başarılıdır.",
+                    strength: "Uyku modu (Sleep Mode) ışık sönmesi ve fan yavaşlatma konusunda çok başarılıdır.",
+                    limitation: "Küçük alan odaklı.",
+                    selection_rule: "Bebek odası ve yatak odası.",
                     slug: "philips-1000-ac1711"
                 }
             ],
             tier2_alternative: [
                 {
                     name: "Xiaomi 4 Compact",
-                    reason: "Boyutu ve sessizliğiyle tam bir komodin üstü şifa cihazıdır.",
+                    decision_headline: "Boyutu ve sessizliğiyle tam bir komodin üstü şifa cihazıdır.",
+                    strength: "Boyutu ve sessizliğiyle tam bir komodin üstü şifa cihazıdır.",
+                    limitation: "Kısıtlı kapasite.",
+                    selection_rule: "Ekonomik ve küçük oda çözümü.",
                     slug: "xiaomi-4-compact"
                 }
             ],
@@ -222,6 +230,51 @@ export default async function ScenarioPage({ params }) {
                 "Daikin sessizlik konusunda pazarın en tepesindedir."
             ],
             verdict: "Sessizlik arıyorsanız Daikin, ekonomik çözüm arıyorsanız Xiaomi Compact en doğru karardır."
+        },
+        "mutfak-kokusu": {
+            title: "Mutfak ve Yemek Kokusu",
+            problem: "Kızartma, balık veya ağır yemek kokularının salonla birleşik mutfaklarda hızla emilmesi gerekir.",
+            personas: ["Açık mutfaklı evler", "Yemek kokusuna hassas olanlar", "Havalandırması yetersiz mutfaklar"],
+            tier1_safe: [
+                {
+                    name: "Shark NeverChange5",
+                    decision_headline: "Koku kontrolü için üretilmiş en agresif filtre sistemlerinden birine sahiptir.",
+                    strength: "Koku moleküllerini yakalayan özel katmanları ve yüksek debili fanı.",
+                    limitation: "Maksimum güçte sesli çalışma.",
+                    selection_rule: "Önceliği mutlak koku bastırma olanlar için.",
+                    slug: "shark-neverchange5"
+                },
+                {
+                    name: "Philips 3200 AC3220",
+                    decision_headline: "Hava sirkülasyonu sayesinde kokulu havayı en hızlı çeviren genel çözüm.",
+                    strength: "Yüksek CADR değeri ile geniş mutfak/salon alanını kokudan arındırır.",
+                    limitation: "Koku kapsülü gibi spesifik koku çözümleri içermez.",
+                    selection_rule: "Hem koku hem genel temizlik için en sağlam tercih.",
+                    slug: "philips-3200-ac3220"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Xiaomi 4 Lite",
+                    decision_headline: "Küçük mutfaklar için bütçe dostu koku filtresi.",
+                    strength: "Kömür filtre katmanı yemek kokularını kırmak için fiyatına göre yeterlidir.",
+                    limitation: "Yoğun ve süreğen kokularda tıkanma hissi verebilir.",
+                    selection_rule: "Basit koku kontrolü arayanlar.",
+                    slug: "xiaomi-4-lite"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Xiaomi 4 Compact",
+                    reason: "Mutfak gibi yoğun partiküllü bir alanda filtresi çok çabuk kirlenir ve yetersiz kalır.",
+                    slug: "xiaomi-4-compact"
+                }
+            ],
+            rules: [
+                "Aktif karbon filtre yoğunluğu koku için her şeydir.",
+                "Cihazı yemek pişerken en yüksek devirde, davlumbazla eş zamanlı çalıştırın."
+            ],
+            verdict: "Mutfak kokusuyla başınız dertteyse Shark hızda, Philips 3200 ise kapasitede galibidir."
         }
     };
 

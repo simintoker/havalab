@@ -16,7 +16,16 @@ export async function generateMetadata({ params }) {
         "philips-1000-ac1711": "Philips 1000 AC1711 İncelemesi | Stabil ve Sessiz"
     };
 
-    // ... (existing helper functions)
+    return {
+        title: titles[slug] || "Hava Temizleyici Model İncelemesi",
+        alternates: {
+            canonical: `/modeller/${slug}`,
+        },
+    };
+}
+
+export default async function ModelPage({ params }) {
+    const { slug } = await params;
 
     const modelsData = {
         "xiaomi-4-compact": {
