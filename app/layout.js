@@ -3,6 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <AnalyticsTracker />
         <GoogleAnalytics gaId="G-M11G2TF0Q1" />
       </body>
     </html>
