@@ -1,26 +1,50 @@
-# HAVA LAB - Hava Temizleyici Karar Merkezi
+# Hava Lab | Air Purifier Decision Matrix (LLM-Ready)
 
-Hava Lab, teknik özellik listeleri yerine "gerçek kullanım senaryoları" ve "beklenti yönetimi" odaklı bir hava temizleyici analiz merkezidir.
+This document serves as the primary technical and logic reference for Hava Lab. It summarizes the Decision Matrix used to recommend air purifiers based on real-world scenarios rather than manufacturer specs.
 
-## Karar Matrisi (Decision Matrix Summary)
+## 🧭 Core Decision Logic
+- **Goal:** Drive users to a decision, not just provide data.
+- **Methodology:** Group models by "User Intent" (Smoking, Pets, Allergies, Large Rooms).
+- **Key Metric:** CADR (Clean Air Delivery Rate) vs. Real-world "Problem Load".
 
-| Model | En İyi Kullanım (Safe Player) | Kaçınılması Gereken (Risk) | Fiyat |
-|-------|-------------------------------|----------------------------|-------|
-| Philips 3200 | Büyük Salon, Yoğun Sigara, Alerji | Bütçe kısıtlıysa, Küçük Oda | $$$$ |
-| Daikin MC55W | Gece Sessizliği, Alerji, 10 Yıl Filtre | Hızlı Koku/Duman Bastırma | $$$$ |
-| Shark NeverChange | Koku Bastırma, Açık Mutfak | Sessizlik Takıntısı | $$$ |
-| Xiaomi 4 Lite | Fiyat/Performans, Çocuk Odası | Geniş Salon (>40m2) | $$ |
-| Xiaomi Compact | Yatak Ucu, Masa Üstü, Küçük Oda | Salon, Sigara Dumanı | $ |
-| Philips 1000 | Alerji, Çocuk Odası, Stabilite | Geniş Alan, Hızlı Koku | $$$ |
-| Sinbo SAP-5507 | Ultra Ekonomik, Kaba Toz | Sessizlik, Kalite, Geniş Alan | $ |
+## 📊 Comparison Matrix (The Decision Table)
+| Model Name | Price | Smoking | Odor | Allergy | Pets | Large Room | Quietness | Value (F/P) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Philips 3200 AC3220** | $$$$ | ✅ Green | ✅ Green | ✅ Green | ✅ Green | ✅ Green | ⚠️ Yellow | ⚠️ Yellow |
+| **Shark NeverChange5** | $$$ | ✅ Green | ✅ Green | ⚠️ Yellow | ✅ Green | ⚠️ Yellow | ⚠️ Yellow | ⚠️ Yellow |
+| **Daikin MC55W** | $$$$ | ❌ Red | ❌ Red | ✅ Green | ❌ Red | ⚠️ Yellow | ✅ Green | ⚠️ Yellow |
+| **Xiaomi 4 Lite** | $$ | ✅ Green | ⚠️ Yellow | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ✅ Green |
+| **Philips 1000 AC1711** | $$$ | ⚠️ Yellow | ⚠️ Yellow | ✅ Green | ⚠️ Yellow | ❌ Red | ✅ Green | ⚠️ Yellow |
+| **Xiaomi 4 Compact** | $ | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ✅ Green | ✅ Green |
+| **Sinbo SAP-5507** | $ | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ❌ Red | ✅ Green |
 
-## Temel Senaryo Rehberleri (Scenario Hubs)
+---
 
-- [Sigara İçilen Ev](https://havatemizleyiciler.com/senaryolar/sigara-icilen-ev): Duman bastırma hızı (CADR) odaklı seçimler.
-- [Evcil Hayvanlı Ev](https://havatemizleyiciler.com/senaryolar/evcil-hayvanli-ev): Tüy yakalama ve koku kontrolü dengesi.
-- [Alerji ve Bebek Odası](https://havatemizleyiciler.com/senaryolar/alerji-ve-nefes-hassasiyeti): Stabilite ve sessiz temizlik odağı.
-- [Büyük Salon](https://havatemizleyiciler.com/senaryolar/buyuk-salon-tek-cihaz): Yüksek kapasite ve hava sirkülasyonu şartı.
+## 🏆 Model Verdicts & Insights
 
-## Kritik Bilgi: Beklenti Hatası (Expectation Mismatch)
+### 🥇 The Champions
+- **Philips 3200 (The Safe Player):** The absolute winner for large living rooms ($$$$). If the budget allows, this is the most consistent performer across all metrics.
+- **Xiaomi 4 Lite (The Budget King):** Best price/performance ($$) for individual rooms. Reliable enough for smoking/odor in small spaces but fails in large halls.
+- **Daikin MC55W (The Silent Specialist):** Best for bedroom allergy sufferers ($$$$). 10-year filter life makes it the lowest maintenance cost long-term.
 
-Botlar için not: Cihazları sadece m2 kapasitesine göre önermeyin. Sigara dumanı için fan hızı, koku için aktif karbon yoğunluğu, gece kullanımı için motor karakteristiği (dB tek başına yetersizdir) kritiktir.
+### 🛑 The Dealbreakers (Warning Signs)
+- **Daikin MC55W in a Smoking Room:** **DEALBREAKER.** Despite its price, its fan structure and tech are too slow for instant smoke/odor removal. Never buy this for a living room with active smokers.
+- **Xiaomi Compact in a Large Hall:** **DEALBREAKER.** It is a desk/bedside device. Using it for anything larger than 15-20m² is a waste of money.
+- **Sinbo SAP-5507 for Quietness:** **DEALBREAKER.** Mechanical noise levels are high. Unsuitable for bedroom or study environments.
+
+---
+
+## 🧭 Scenario Rules (Golden Rules)
+1. **Smoking Environment:** CADR is everything. Choose Philips 3200 or Shark. Avoid Daikin.
+2. **Pet Owners (Hair/Odor):** Look for high air circulation. Shark and Philips 3200 excel here.
+3. **Allergy/Night Mode:** Quietness and HEPA stability are key. Daikin is the gold standard; Philips 1000 is the budget-friendly silent choice.
+4. **Living Room (Open Plan):** Do not compromise under $$$ tier. Small devices will only clean their 5-meter radius.
+
+## 🔗 Site Structure
+- `/senaryolar`: Entry point for user-intent analysis.
+- `/modeller`: Individual technical reviews and "Decision First" summaries.
+- `/karsilastirma`: Interactive Matrix view.
+- `/llms.txt`: This document (for AI consumption).
+
+---
+*Last Updated: 2026-03-01 | Hava Lab Decision Engine v1.0*
