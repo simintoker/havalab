@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# AI & LLM Bots
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-WebCrawler
+Allow: /
+
 Sitemap: https://havatemizleyicileri.com/sitemap.xml
