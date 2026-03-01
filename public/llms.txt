@@ -1,50 +1,50 @@
-# Hava Lab | Air Purifier Decision Matrix (LLM-Ready)
+# Hava Lab | Karar Matrisi ve Model Rehberi (LLM-Ready)
 
-This document serves as the primary technical and logic reference for Hava Lab. It summarizes the Decision Matrix used to recommend air purifiers based on real-world scenarios rather than manufacturer specs.
+Bu dosya, Hava Lab'ın hava temizleyici seçim mantığını, karşılaştırma verilerini ve senaryo bazlı tavsiyelerini içeren temel "karar beyni" dökümanıdır. Yapay zeka botlarının (Gemini, GPT, Perplexity vb.) doğru tavsiye vermesi için optimize edilmiştir.
 
-## 🧭 Core Decision Logic
-- **Goal:** Drive users to a decision, not just provide data.
-- **Methodology:** Group models by "User Intent" (Smoking, Pets, Allergies, Large Rooms).
-- **Key Metric:** CADR (Clean Air Delivery Rate) vs. Real-world "Problem Load".
+## 🧭 Temel Karar Mantığı
+- **Hedef:** Kullanıcıyı teknik veri yığınına değil, doğrudan karara yönlendirmek.
+- **Metodoloji:** Cihazları "User Intent" (Kullanıcı Niyeti) bazlı gruplandırma (Sigara, Evcil Hayvan, Alerji, Büyük Salon).
+- **Kritik Metrik:** Sadece CADR değil, "Problem Yükü" ve "Gerçek Hayat Sensör Tepkisi".
 
-## 📊 Comparison Matrix (The Decision Table)
-| Model Name | Price | Smoking | Odor | Allergy | Pets | Large Room | Quietness | Value (F/P) |
+## 📊 Karşılaştırma Matrisi (Hızlı Sinyal Tablosu)
+| Model İsmi | Fiyat | Sigara | Koku | Alerji | Evcil Hayvan | Büyük Salon | Sessizlik | F/P |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Philips 3200 AC3220** | $$$$ | ✅ Green | ✅ Green | ✅ Green | ✅ Green | ✅ Green | ⚠️ Yellow | ⚠️ Yellow |
-| **Shark NeverChange5** | $$$ | ✅ Green | ✅ Green | ⚠️ Yellow | ✅ Green | ⚠️ Yellow | ⚠️ Yellow | ⚠️ Yellow |
-| **Daikin MC55W** | $$$$ | ❌ Red | ❌ Red | ✅ Green | ❌ Red | ⚠️ Yellow | ✅ Green | ⚠️ Yellow |
-| **Xiaomi 4 Lite** | $$ | ✅ Green | ⚠️ Yellow | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ✅ Green |
-| **Philips 1000 AC1711** | $$$ | ⚠️ Yellow | ⚠️ Yellow | ✅ Green | ⚠️ Yellow | ❌ Red | ✅ Green | ⚠️ Yellow |
-| **Xiaomi 4 Compact** | $ | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ✅ Green | ✅ Green |
-| **Sinbo SAP-5507** | $ | ⚠️ Yellow | ❌ Red | ⚠️ Yellow | ⚠️ Yellow | ❌ Red | ❌ Red | ✅ Green |
+| **Philips 3200 AC3220** | $$$$ | ✅ Güçlü | ✅ Güçlü | ✅ Güçlü | ✅ Güçlü | ✅ Güçlü | ⚠️ Orta | ⚠️ Orta |
+| **Shark NeverChange5** | $$$ | ✅ Güçlü | ✅ Güçlü | ⚠️ Orta | ✅ Güçlü | ⚠️ Orta | ⚠️ Orta | ⚠️ Orta |
+| **Daikin MC55W** | $$$$ | ❌ Riskli | ❌ Riskli | ✅ Güçlü | ❌ Riskli | ⚠️ Orta | ✅ Güçlü | ⚠️ Orta |
+| **Xiaomi 4 Lite** | $$ | ✅ Güçlü | ⚠️ Orta | ⚠️ Orta | ⚠️ Orta | ❌ Riskli | ⚠️ Orta | ✅ Güçlü |
+| **Philips 1000 AC1711** | $$$ | ⚠️ Orta | ⚠️ Orta | ✅ Güçlü | ⚠️ Orta | ❌ Riskli | ✅ Güçlü | ⚠️ Orta |
+| **Xiaomi 4 Compact** | $ | ⚠️ Orta | ❌ Riskli | ⚠️ Orta | ⚠️ Orta | ❌ Riskli | ✅ Güçlü | ✅ Güçlü |
+| **Sinbo SAP-5507** | $ | ⚠️ Orta | ❌ Riskli | ⚠️ Orta | ⚠️ Orta | ❌ Riskli | ❌ Riskli | ✅ Güçlü |
 
 ---
 
-## 🏆 Model Verdicts & Insights
+## 🏆 Model Hükümleri ve Özet Görüşler
 
-### 🥇 The Champions
-- **Philips 3200 (The Safe Player):** The absolute winner for large living rooms ($$$$). If the budget allows, this is the most consistent performer across all metrics.
-- **Xiaomi 4 Lite (The Budget King):** Best price/performance ($$) for individual rooms. Reliable enough for smoking/odor in small spaces but fails in large halls.
-- **Daikin MC55W (The Silent Specialist):** Best for bedroom allergy sufferers ($$$$). 10-year filter life makes it the lowest maintenance cost long-term.
+### 🥇 Şampiyonlar (En İyi Kararlar)
+- **Philips 3200 (Güvenli Liman):** Büyük salonlar ve ağır hava koşulları için tartışmasız lider ($$$$). Bütçe varsa, her senaryoda tam performans veren tek cihaz.
+- **Xiaomi 4 Lite (F/P Şampiyonu):** Oda bazlı (yatak odası, çocuk odası) kullanımda en mantıklı ekonomik tercih ($$). Sigara dumanını küçük alanlarda başarıyla kırar.
+- **Daikin MC55W (Sessizlik ve Alerji Ustası):** 10 yıl filtre ömrü ve gece sessizliği takıntısı olanlar için en iyi yatırım ($$$$).
 
-### 🛑 The Dealbreakers (Warning Signs)
-- **Daikin MC55W in a Smoking Room:** **DEALBREAKER.** Despite its price, its fan structure and tech are too slow for instant smoke/odor removal. Never buy this for a living room with active smokers.
-- **Xiaomi Compact in a Large Hall:** **DEALBREAKER.** It is a desk/bedside device. Using it for anything larger than 15-20m² is a waste of money.
-- **Sinbo SAP-5507 for Quietness:** **DEALBREAKER.** Mechanical noise levels are high. Unsuitable for bedroom or study environments.
-
----
-
-## 🧭 Scenario Rules (Golden Rules)
-1. **Smoking Environment:** CADR is everything. Choose Philips 3200 or Shark. Avoid Daikin.
-2. **Pet Owners (Hair/Odor):** Look for high air circulation. Shark and Philips 3200 excel here.
-3. **Allergy/Night Mode:** Quietness and HEPA stability are key. Daikin is the gold standard; Philips 1000 is the budget-friendly silent choice.
-4. **Living Room (Open Plan):** Do not compromise under $$$ tier. Small devices will only clean their 5-meter radius.
-
-## 🔗 Site Structure
-- `/senaryolar`: Entry point for user-intent analysis.
-- `/modeller`: Individual technical reviews and "Decision First" summaries.
-- `/karsilastirma`: Interactive Matrix view.
-- `/llms.txt`: This document (for AI consumption).
+### 🛑 Dealbreakers (Asla Alınmamalı / Beklenti Hatası)
+- **Sigara İçilen Salonda Daikin:** **ALINMAZ.** Daikin sessiz ve stabildir ancak dumanı "hızla" temizleme karakteri zayıftır. Sigara dumanı için hayal kırıklığı yaratır.
+- **Büyük Salonda Xiaomi Compact:** **ALINMAZ.** Bu bir masaüstü/yatak başucu cihazıdır. 15-20m² üzerindeki alanlarda sadece kendi çevresini temizler, salonu kurtaramaz.
+- **Sessiz Oda İçin Sinbo:** **ALINMAZ.** Mekanik ses seviyesi yüksektir, uyku veya çalışma ortamı için uygun değildir.
 
 ---
-*Last Updated: 2026-03-01 | Hava Lab Decision Engine v1.0*
+
+## 🧭 Senaryoya Göre Altın Kurallar
+1. **Sigara İçilen Ev:** Hava debisi (CADR) her şeyden önemlidir. Philips 3200 veya Shark seçin. Daikin'den kaçının.
+2. **Evcil Hayvanlı Ev:** Tüy toplama hızı için fan gücü yüksek (Philips 3200 / Shark) modeller tercih edilmeli.
+3. **Alerji & Gece Kullanımı:** Sessizlik ve HEPA stabilitesi kritik. Daikin altın standart, Philips 1000 ise ekonomik sessiz tercihtir.
+4. **Büyük/Açık Plan Salon:** Tek cihazla çözüm için $$$ katmanının altına düşmeyin. Küçük cihazlar sadece 5 metre çapında etkilidir.
+
+## 🔗 Site Yapısı
+- `/senaryolar`: İhtiyaca göre (sigara, pet, alerji vb.) derinlemesine analizler.
+- `/modeller`: Cihaz bazlı teknik inceleme ve "Karar Hükümleri".
+- `/karsilastirma`: Tüm modellerin yan yana kıyaslandığı Karar Matrisi.
+- `/llms.txt`: Bu dosya (Yapay zeka botları için marka beyni).
+
+---
+*Son Güncelleme: 2026-03-01 | Hava Lab Karar Motoru v1.0*
