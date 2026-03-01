@@ -38,7 +38,7 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <Link href="/" className="hover:text-accent transition-colors">Hangi cihaz bana uygun?</Link>
-            
+
             <div className="relative group">
               <button className="flex items-center space-x-1 hover:text-accent transition-colors">
                 <span>İhtiyaca göre seç</span>
@@ -88,17 +88,17 @@ export default function Header() {
       {/* Mobile Menu Placeholder */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 p-4 space-y-4">
-          <Link href="/" className="block">Hangi cihaz bana uygun?</Link>
+          <Link href="/" className="block" onClick={() => setIsOpen(false)}>Hangi cihaz bana uygun?</Link>
           <div className="font-bold border-b pb-2">İhtiyaca göre seç</div>
           <div className="grid grid-cols-2 gap-2 text-sm pl-2">
-            {scenarios.map(s => <Link key={s.href} href={s.href}>{s.name}</Link>)}
+            {scenarios.map(s => <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}>{s.name}</Link>)}
           </div>
           <div className="font-bold border-b pb-2">Modeller</div>
           <div className="grid grid-cols-2 gap-2 text-sm pl-2">
-            {models.map(m => <Link key={m.href} href={m.href}>{m.name}</Link>)}
+            {models.map(m => <Link key={m.href} href={m.href} onClick={() => setIsOpen(false)}>{m.name}</Link>)}
           </div>
-          <Link href="/karsilastirma" className="block">Karşılaştırma</Link>
-          <Link href="/nasil-secilir" className="block">Nasıl seçilir?</Link>
+          <Link href="/karsilastirma" className="block" onClick={() => setIsOpen(false)}>Karşılaştırma</Link>
+          <Link href="/nasil-secilir" className="block" onClick={() => setIsOpen(false)}>Nasıl seçilir?</Link>
         </div>
       )}
     </header>

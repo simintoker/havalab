@@ -13,19 +13,10 @@ export async function generateMetadata({ params }) {
         "daikin-mc55w": "Daikin MC55W İncelemesi | Sessizlik ve Uzun Ömür",
         "shark-neverchange5": "Shark NeverChange5 İncelemesi | Koku ve Filtre Ömrü",
         "sinbo-sap-5507": "Sinbo SAP-5507 İncelemesi | Giriş Seviyesi Beklentiler",
-        "philips-1000-ac1215": "Philips 1000 AC1215 İncelemesi | Stabil ve Sessiz"
+        "philips-1000-ac1711": "Philips 1000 AC1711 İncelemesi | Stabil ve Sessiz"
     };
 
-    return {
-        title: titles[slug] || "Hava Temizleyici Model İncelemesi",
-        alternates: {
-            canonical: `/modeller/${slug}`,
-        },
-    };
-}
-
-export default async function ModelPage({ params }) {
-    const { slug } = await params;
+    // ... (existing helper functions)
 
     const modelsData = {
         "xiaomi-4-compact": {
@@ -51,7 +42,6 @@ export default async function ModelPage({ params }) {
                 { name: "Alerji ve Bebek Odası", slug: "alerji-ve-nefes-hassasiyeti" }
             ]
         },
-        // ... other models updated similarly (for brevity in planning, I will implement all in one go)
         "xiaomi-4-lite": {
             name: "Xiaomi 4 Lite",
             topSummary: "Küçük-orta alanlarda güçlü bir fiyat/performans ürünüdür, ancak geniş salonlarda 'yetişememe' riski taşır.",
@@ -99,7 +89,6 @@ export default async function ModelPage({ params }) {
                 { name: "Alerji ve Bebek Odası", slug: "alerji-ve-nefes-hassasiyeti" }
             ]
         },
-        // Adding minimal updates for the rest to avoid huge file but keep consistency
         "daikin-mc55w": {
             name: "Daikin MC55W",
             topSummary: "Güvenilir marka ve düşük bakım maliyeti (10 yıl filtre ömrü) arayanlar için sessiz ve stabil bir tercihtir.",
@@ -145,8 +134,52 @@ export default async function ModelPage({ params }) {
                 { name: "Mutfak ve Yemek Kokusu", slug: "mutfak-kokusu" },
                 { name: "Evcil Hayvanlı Ev", slug: "evcil-hayvanli-ev" }
             ]
+        },
+        "philips-1000-ac1711": {
+            name: "Philips 1000 AC1711",
+            topSummary: "Küçük ve orta büyüklükteki odalar (özellikle yatak odası) için sessiz, stabil ve güvenilir bir çözüm arayanlara hitap eder.",
+            personas: ["Yatak odası/Bebek odası sahipleri", "Sessizlik ve ışık hassasiyeti olanlar", "Philips kalitesini uygun fiyata arayanlar"],
+            problemSolved: "Orta büyüklükteki odalarda hava kalitesini koruma ve sessiz/etkili temizlik sağlama.",
+            satisfaction: "Özellikle uyku modunun başarısı ve sensör hassasiyeti sayesinde gece boyu konfor sağlar.",
+            disappointment: "Geniş salonlarda koku ve duman yükünü temizlemede zayıf kalabilir.",
+            pros: ["Mükemmel uyku modu", "Yüksek sensör doğruluğu", "Kompakt ve şık tasarım"],
+            cons: ["Geniş açık alanlar", "Yoğun sigara dumanı dumanı", "Hızlı koku bastırma"],
+            priceTier: "$$$",
+            priceValue: "8500",
+            specs: {
+                area: "30-50 m²",
+                cadr: "300 m³/saat",
+                noise: "15-50 dB",
+                features: "AeraSense, Smart Control, 3 Farklı Mod"
+            },
+            verdict: "Philips 1000, yatak odanız için alabileceğiniz en risksiz ve huzurlu cihazlardan biridir.",
+            relatedScenarios: [
+                { name: "Sessiz Gece Kullanımı", slug: "sessiz-gece-kullanimi" },
+                { name: "Alerji ve Bebek Odası", slug: "alerji-ve-nefes-hassasiyeti" }
+            ]
+        },
+        "sinbo-sap-5507": {
+            name: "Sinbo SAP-5507",
+            topSummary: "Sadece basit bir filtreleme ihtiyacı olan, düşük bütçeli ve beklentisi 'hava biraz temizlensin' olan kullanıcılar için bir giriş modelidir.",
+            personas: ["Çok kısıtlı bütçeye sahip olanlar", "Teknik detay/otomasyon aramayanlar", "Küçük öğrenci odaları"],
+            problemSolved: "Birincil toz ve kaba partikülleri düşük maliyetle süzme.",
+            satisfaction: "Düşük maliyetli bir çözüm arayan ve yüksek teknoloji beklentisi olmayan kullanıcılar için iş görür.",
+            disappointment: "Mekanik sesi, sensör eksikliği veya yetersiz koku performansı nedeniyle hayal kırıklığı yaratabilir.",
+            pros: ["En düşük fiyat", "Basit kullanım", "Ulaşılabilirlik"],
+            cons: ["Yüksek fan sesi", "Sensör verileri / Otomasyon", "Ağır koku ve duman performansı"],
+            priceTier: "$",
+            priceValue: "1800",
+            specs: {
+                area: "15-25 m² (Küçük)",
+                cadr: "150 m³/saat",
+                noise: "Yüksek (Mekanik)",
+                features: "Manuel Kontrol, HEPA Filtre"
+            },
+            verdict: "Sinbo, 'hava temizleyiciye çok bütçe ayırmak istemiyorum ama bir filtre dönsün' diyenlerin giriş kapısıdır.",
+            relatedScenarios: [
+                { name: "Sessiz Gece Kullanımı", slug: "sessiz-gece-kullanimi" }
+            ]
         }
-        // Philips 1000 and Sinbo omitted for brevity but they follow same pattern in full deployment
     };
 
     const model = modelsData[slug] || modelsData["xiaomi-4-lite"];

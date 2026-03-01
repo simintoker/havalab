@@ -112,6 +112,116 @@ export default async function ScenarioPage({ params }) {
                 "Sadece tüy öncelikli ise → Fan gücü yüksek (Shark/Philips) modelleri seç."
             ],
             verdict: "Evcil hayvanlı evlerde hava sirkülasyonu yüksek modeller tüy yakalamada fark yaratır."
+        },
+        "alerji-ve-nefes-hassasiyeti": {
+            title: "Alerji & Nefes Hassasiyeti",
+            problem: "Odak noktası 0.3 mikron düzeyindeki partiküllerin (polen, toz akarı) %99.97 oranında tutulması ve cihazın gece boyu sessiz çalışmasıdır.",
+            personas: ["Toz/Polen alerjisi olanlar", "Bebek odası için çözüm arayanlar", "Astım/Bronşit hassasiyeti"],
+            tier1_safe: [
+                {
+                    name: "Daikin MC55W",
+                    decision_headline: "Alerji söz konusuysa, Daikin'in plazma ve elektrostatik HEPA kombinasyonu rakipsizdir.",
+                    strength: "Havayı sadece süzmekle kalmayıp ayrıştıran teknoloji ve mutlak sessizlik.",
+                    limitation: "Koku bastırma hızı Philips kadar agresif değildir.",
+                    selection_rule: "Önceliği 'saf hava' ve 'kesintisiz uyku' olan alerji hastaları için.",
+                    slug: "daikin-mc55w"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Philips 1000 AC1711",
+                    decision_headline: "Yatak odası ve bebek odası için en stabil Philips performansı.",
+                    strength: "AeraSense sensörü ile en küçük toz değişimini bile algılar, gece modu çok başarılıdır.",
+                    limitation: "Büyük salonlar için kapasitesi yetersiz kalır.",
+                    selection_rule: "Orta bütçeli, yatak odası odaklı alerji çözümü arayanlar.",
+                    slug: "philips-1000-ac1711"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Sinbo SAP-5507",
+                    reason: "Sensör hassasiyeti ve filtre kalitesi alerji seviyesinde bir koruma için yetersiz kalabilir.",
+                    slug: "sinbo-sap-5507"
+                }
+            ],
+            rules: [
+                "Gece sessizliği %100 kritiktir. Daikin veya Philips 1000 seçin.",
+                "Toz akarı ve polen için HEPA filtre kalitesinden ödün vermeyin."
+            ],
+            verdict: "Alerji dünyasında Daikin lider, Philips 1000 ise güvenilir takipçidir."
+        },
+        "buyuk-salon-tek-cihaz": {
+            title: "Büyük Salon (Tek Cihaz)",
+            problem: "50m² ve üzeri alanlarda havanın her köşeye ulaşması ve tek bir noktada hapsolmaması temel zorluktur.",
+            personas: ["Açık plan salon sahipleri", "Yüksek tavanlı evler", "Geniş ofis alanları"],
+            tier1_safe: [
+                {
+                    name: "Philips 3200 AC3220",
+                    decision_headline: "Gerçek anlamda 'Salon Cihazı' diyebileceğimiz en dengeli dev.",
+                    strength: "Hava sirkülasyon kapasitesi (CADR) sayesinde salonun en uzak köşesine kadar erişim sağlar.",
+                    limitation: "Kaba ve büyük bir cihazdır, dekoratif kısıtlamalar yaratabilir.",
+                    selection_rule: "Salonu tek cihazla, kafam rahat şekilde çözeyim diyenler için.",
+                    slug: "philips-3200-ac3220"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Shark NeverChange5",
+                    decision_headline: "Geniş alanlarda koku ve taze hava hissi için güçlü bir rakip.",
+                    strength: "Büyük alanlarda koku moleküllerini yakalama hızı çok yüksektir.",
+                    limitation: "Ses seviyesi yüksek devirlerde Philips'ten daha belirgindir.",
+                    selection_rule: "Mutfakla birleşik büyük salonlar için ideal seçim.",
+                    slug: "shark-neverchange5"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Xiaomi 4 Lite",
+                    reason: "Kağıt üzerinde yeterli görünse de, büyük salonun havasını çevirmede motor gücü zorlanabilir.",
+                    slug: "xiaomi-4-lite"
+                }
+            ],
+            rules: [
+                "CADR değeri 450-500 altındaki cihazları salon için tekil çözüm olarak almayın.",
+                "Cihazı köşe yerine mümkünse iki alanın (örn yemek ve oturma) ortasına koyun."
+            ],
+            verdict: "Büyük salonun ilacı yüksek hava debisidir; Philips 3200 bu konuda standart belirleyicidir."
+        },
+        "sessiz-gece-kullanimi": {
+            title: "Sessiz Gece Kullanımı",
+            problem: "Yatak başında 'çalıştığı belli bile olmasın' diyen kullanıcıların konfor beklentisidir.",
+            personas: ["Hafif uykusu olanlar", "Bebek odası", "Kütüphane/Çalışma ortamı"],
+            tier1_safe: [
+                {
+                    name: "Daikin MC55W",
+                    reason: "19 dB ses seviyesiyle 'fısıltıdan daha sessiz' olarak bilinen en iyi yatak odası cihazıdır.",
+                    slug: "daikin-mc55w"
+                },
+                {
+                    name: "Philips 1000 AC1711",
+                    reason: "Uyku modu (Sleep Mode) ışık sönmesi ve fan yavaşlatma konusunda çok başarılıdır.",
+                    slug: "philips-1000-ac1711"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Xiaomi 4 Compact",
+                    reason: "Boyutu ve sessizliğiyle tam bir komodin üstü şifa cihazıdır.",
+                    slug: "xiaomi-4-compact"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Sinbo SAP-5507",
+                    reason: "Mekanik fan sesi yatak odasında rahatsız edici bulunacaktır.",
+                    slug: "sinbo-sap-5507"
+                }
+            ],
+            rules: [
+                "Gece modu olan ve ışıkları tamamen sönen modelleri seçin.",
+                "Daikin sessizlik konusunda pazarın en tepesindedir."
+            ],
+            verdict: "Sessizlik arıyorsanız Daikin, ekonomik çözüm arıyorsanız Xiaomi Compact en doğru karardır."
         }
     };
 
