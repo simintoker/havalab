@@ -45,7 +45,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Hava Lab",
-    "url": "https://havatemizleyiciler.com",
+    "url": "https://havatemizleyicileri.com",
     "description": "Senaryo bazlı hava temizleyici karar rehberi."
   };
 
@@ -53,8 +53,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Hava Lab",
-    "url": "https://havatemizleyiciler.com",
-    "logo": "https://havatemizleyiciler.com/logo.png"
+    "url": "https://havatemizleyicileri.com",
+    "logo": "https://havatemizleyicileri.com/logo.png"
   };
 
   return (

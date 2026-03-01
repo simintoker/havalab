@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://havatemizleyiciler.com"),
+  metadataBase: new URL("https://havatemizleyicileri.com"),
   title: {
     default: "Hava Lab | Senaryo Bazlı Hava Temizleyici Rehberi",
     template: "%s | Hava Lab"

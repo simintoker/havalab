@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://havatemizleyiciler.com/sitemap.xml
+Sitemap: https://havatemizleyicileri.com/sitemap.xml
