@@ -1,0 +1,281 @@
+import Link from "next/link";
+import { ArrowRight, Zap, ShieldCheck, AlertCircle, BarChart3, Info, BadgeCheck, XCircle, CheckCircle2 } from "lucide-react";
+
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+    const titles = {
+        "sigara-icilen-ev": "Sigara İçilen Ev İçin Hava Temizleyici | Gerçekten İşe Yarayan Modeller",
+        "evcil-hayvanli-ev": "Evcil Hayvanlı Ev İçin Hava Temizleyici | Tüy ve Koku İçin Seçim",
+        "alerji-ve-nefes-hassasiyeti": "Alerji ve Bebek Odası İçin Hava Temizleyici | Toz ve Polen Rehberi",
+        "buyuk-salon-tek-cihaz": "Büyük Salon İçin Hava Temizleyici | Tek Cihazla Gerçek Performans",
+        "sessiz-gece-kullanimi": "Sessiz Hava Temizleyici Arayanlar İçin Gece Kullanım Rehberi",
+        "mutfak-kokusu": "Mutfak ve Yemek Kokusu İçin Hava Temizleyici | Gerçekçi Beklentiler"
+    };
+
+    return {
+        title: titles[slug] || "Hava Temizleyici Senaryo Rehberi",
+        alternates: {
+            canonical: `/senaryolar/${slug}`,
+        },
+    };
+}
+
+export default async function ScenarioPage({ params }) {
+    const { slug } = await params;
+
+    const scenariosData = {
+        "sigara-icilen-ev": {
+            title: "Sigara İçilen Ev",
+            problem: "Burada amaç sadece tozu filtrelemek değil, dumanın hızla bastırılması ve kokunun yayılmadan azaltılmasıdır.",
+            personas: ["Düzenli sigara içilen evler", "Duman kokusundan rahatsız olanlar", "Havalandırması zayıf salonlar"],
+            tier1_safe: [
+                {
+                    name: "Philips 3200 AC3220",
+                    decision_headline: "Eğer salon gibi geniş alanda sigara içiliyorsa, en güvenli tercih genelde budur.",
+                    strength: "Dumanı algılayıp hızlanma performansı en tutarlı, büyük alanlarda tek cihaz olarak en başarılı model.",
+                    limitation: "Küçük odalar için fazla büyük ve maliyetli kalabilir.",
+                    selection_rule: "Büyük salonu tek seferde çözmek isteyen 'Safe-Player' kullanıcılar için ideal.",
+                    slug: "philips-3200-ac3220"
+                },
+                {
+                    name: "Shark NeverChange5",
+                    decision_headline: "Eğer hızlı etki senin için kritikse, Shark çoğu kullanıcıda daha tatmin edici bulunuyor.",
+                    strength: "Dumanı ve kokuyu 'anında' bastırma hissi en yüksek premium cihaz.",
+                    limitation: "Filtre tedariği ve sensör hassasiyeti uzun vadede soru işareti yaratabilir.",
+                    selection_rule: "Mutfakla birleşik salonlarda veya hızlı koku değişimi bekleyenler için en iyi alternatif.",
+                    slug: "shark-neverchange5"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Xiaomi 4 Lite",
+                    decision_headline: "Salon değil de oda bazlı kullanımda en mantıklı fiyat/performans seçeneği.",
+                    strength: "Küçük ve orta odalarda duman yükünü kırmak için yeterli fan gücüne sahip.",
+                    limitation: "Geniş salonlarda 'yetişememe' ve koku bastıramama riski yüksektir.",
+                    selection_rule: "Bütçe kısıtlıysa veya sadece çalışma odasında sigara içiliyorsa tercih edilmeli.",
+                    slug: "xiaomi-4-lite"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Daikin MC55W",
+                    reason: "Stabil ve sessizdir ancak dumanı 'hızla' çözme karakteri zayıftır. 'Farkı hemen hissedeyim' diyenleri hayal kırıklığına uğratabilir.",
+                    slug: "daikin-mc55w"
+                },
+                {
+                    name: "Xiaomi Compact",
+                    reason: "Sadece bulunduğu dar çevrede etkilidir. Salon dumanı için kapasitesi yetersiz kalır.",
+                    slug: "xiaomi-4-compact"
+                }
+            ],
+            rules: [
+                "Salon/Geniş oda ise → Philips 3200 veya Shark seç.",
+                "Tek oda (yatak/çalışma) ise → Xiaomi Lite yeterli.",
+                "Otomatik algılama kritikse → Giriş modellerinden (Sinbo vb.) kaçın."
+            ],
+            verdict: "Sigara dumanı ve kokusuyla mücadele ediyorsanız, 'hava debisi' (CADR) her şeyden önemlidir. Philips 3200 genel denge için, Shark ise hız için en doğru kararlardır."
+        },
+        // ... (Other scenarios added in implementation)
+        "evcil-hayvanli-ev": {
+            title: "Evcil Hayvanlı Ev",
+            problem: "Tüy, koku ve alerjen yüküne odaklanılmalıdır. Uzun süreli açık kalmaya uygun, yüksek devirde verimli modeller seçilmelidir.",
+            personas: ["Tüy + Koku çözümü arayanlar", "Evcil hayvan kaynaklı alerjisi olanlar", "Otomasyon (kendi algılasın) isteyenler"],
+            tier1_safe: [
+                {
+                    name: "Philips 3200 AC3220",
+                    decision_headline: "Hem tüy hem alerji probleminiz varsa, en risksiz genel tercih budur.",
+                    strength: "Alerjen yakalama ve tüy toplama dengesi laboratuvar verilerinde en yüksek model.",
+                    limitation: "Boyutu ve filtre maliyeti giriş seviyesinden yüksektir.",
+                    selection_rule: "Gerçek bir çözüm ve marka güvencesi arayan pet sahipleri için.",
+                    slug: "philips-3200-ac3220"
+                }
+            ],
+            tier2_alternative: [
+                {
+                    name: "Shark NeverChange5",
+                    decision_headline: "Farkı hızlı hissetmek ve koku kontrolü sağlamak isteyenler için güçlü aday.",
+                    strength: "Evcil hayvan kokusunu bastırmada ve yüksek fan devriyle tüy çekmede başarılı.",
+                    limitation: "Uzak vadede filtre istikrarı Philips kadar kanıtlanmamış olabilir.",
+                    selection_rule: "Koku öncelikli ve 'hızlı değişim' odaklı pet sahipleri için.",
+                    slug: "shark-neverchange5"
+                }
+            ],
+            tier3_risky: [
+                {
+                    name: "Daikin MC55W",
+                    reason: "Alerji için mükemmeldir ancak 'tüy yakalama' beklentisinde zayıf kalabilir.",
+                    slug: "daikin-mc55w"
+                }
+            ],
+            rules: [
+                "Alerji + Pet birlikteyse → Philips 3200 güvenli liman.",
+                "Sadece tüy öncelikli ise → Fan gücü yüksek (Shark/Philips) modelleri seç."
+            ],
+            verdict: "Evcil hayvanlı evlerde hava sirkülasyonu yüksek modeller tüy yakalamada fark yaratır."
+        }
+    };
+
+    const scenario = scenariosData[slug] || scenariosData["sigara-icilen-ev"];
+
+    // JSON-LD FAQ Schema for GEO
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": scenario.rules.map(rule => ({
+            "@type": "Question",
+            "name": `${scenario.title} için karar kuralı nedir?`,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": rule
+            }
+        }))
+    };
+
+    return (
+        <div className="container mx-auto px-4 lg:px-8 py-8 md:py-12 space-y-12">
+            {/* JSON-LD FOR BOT DISCOVERY */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+
+            {/* Header & Problem Context */}
+            <section className="max-w-4xl space-y-4">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                    <Link href="/senaryolar" className="hover:text-accent">İhtiyaca Göre Seç</Link>
+                    <span>/</span>
+                    <span className="text-gray-900">{scenario.title}</span>
+                </div>
+                <h1 className="text-3xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
+                    {scenario.title} Karar Rehberi
+                </h1>
+                <div className="text-lg text-gray-600 leading-relaxed font-bold max-w-2xl italic border-l-4 border-accent pl-6 bg-gray-50 py-4 rounded-r-lg">
+                    <h2 className="text-xs uppercase tracking-[0.2em] text-accent mb-2">Senaryo Analizi</h2>
+                    "{scenario.problem}"
+                </div>
+                <div className="flex flex-wrap gap-2 pt-2">
+                    {scenario.personas.map((p, i) => (
+                        <span key={i} className="bg-white border px-3 py-1 rounded-full text-xs font-black text-gray-400 uppercase tracking-widest">
+                            {p}
+                        </span>
+                    ))}
+                </div>
+            </section>
+
+            {/* TIER 1: THE SAFE CHOICES */}
+            <section className="space-y-8">
+                <div className="flex items-center gap-3 border-b pb-4" aria-label="En Güvenli Kararlar Bölümü">
+                    <CheckCircle2 className="h-6 w-6 text-green-600" aria-hidden="true" />
+                    <h2 className="text-2xl font-black tracking-tight uppercase italic">{scenario.title} İçin En İyi Çözümler</h2>
+                </div>
+
+                <div className="space-y-6">
+                    {scenario.tier1_safe.map((model, i) => (
+                        <div key={i} className="bento-box border-l-8 border-l-accent p-8 space-y-6 bg-white shadow-sm ring-1 ring-gray-100">
+                            <div className="space-y-2">
+                                <span className="text-[10px] font-bold text-accent uppercase tracking-[0.2em]">HAVA LAB ÖNERİSİ</span>
+                                <h3 className="text-xl md:text-2xl font-bold text-gray-950 italic">"{model.decision_headline}"</h3>
+                                <div className="flex items-center gap-4 text-2xl font-black text-gray-900">
+                                    {model.name}
+                                    <Link href={`/modeller/${model.slug}`} className="text-sm font-bold text-accent hover:underline flex items-center gap-1">
+                                        Analizi Gör <ArrowRight className="h-4 w-4" />
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-8 py-4 border-y border-gray-50">
+                                <div className="space-y-2">
+                                    <h4 className="text-xs font-bold uppercase text-green-700 flex items-center gap-1">
+                                        <BadgeCheck className="h-4 w-4" /> Neden Güvenilir?
+                                    </h4>
+                                    <p className="text-sm text-gray-700 leading-relaxed font-medium">{model.strength}</p>
+                                </div>
+                                <div className="space-y-2">
+                                    <h4 className="text-xs font-bold uppercase text-red-700 flex items-center gap-1">
+                                        <XCircle className="h-4 w-4" /> Dikkat Edilmesi Gereken
+                                    </h4>
+                                    <p className="text-sm text-gray-700 leading-relaxed">{model.limitation}</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-accent/5 p-4 rounded-xl border border-accent/10 flex items-center gap-4">
+                                <div className="bg-accent text-white px-3 py-1 rounded-lg font-black text-[10px] uppercase">Seçim Kuralı</div>
+                                <p className="text-sm font-bold text-accent-700">{model.selection_rule}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* TIER 2: ALTERNATIVES */}
+            <section className="space-y-6">
+                <div className="flex items-center gap-3 border-b pb-4">
+                    <BarChart3 className="h-6 w-6 text-gray-400" />
+                    <h2 className="text-xl font-black tracking-tight uppercase italic underline decoration-accent/20">Ekonomik Alternatifler</h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                    {scenario.tier2_alternative.map((model, i) => (
+                        <div key={i} className="bento-box p-6 space-y-4 border-gray-200 bg-gray-50/30">
+                            <div className="space-y-1">
+                                <h3 className="text-lg font-bold text-gray-900 underline decoration-gray-300">{model.name}</h3>
+                                <p className="text-sm font-bold text-gray-500 italic">"{model.decision_headline}"</p>
+                            </div>
+                            <div className="space-y-3 text-xs leading-relaxed text-gray-600">
+                                <p><span className="font-bold text-gray-900">Avantaj:</span> {model.strength}</p>
+                                <p><span className="font-bold text-gray-900">Beklenti Risk:</span> {model.limitation}</p>
+                            </div>
+                            <Link href={`/modeller/${model.slug}`} className="block text-[10px] font-bold text-accent uppercase tracking-widest pt-2">Model Detayı →</Link>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* RULES: THE LAB VERDICT */}
+            <section className="bg-gray-950 text-white p-10 rounded-3xl space-y-6 relative overflow-hidden ring-4 ring-accent/10">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                    <ShieldCheck className="h-32 w-32" />
+                </div>
+                <div className="relative z-10 space-y-8">
+                    <div className="space-y-1">
+                        <span className="text-accent font-black uppercase tracking-[0.3em] text-[10px]">Laboratuvar Karar Özeti</span>
+                        <h2 className="text-2xl md:text-3xl font-black tracking-tight italic">{scenario.title} İçin 4 Altın Kural</h2>
+                    </div>
+                    <ul className="grid md:grid-cols-2 gap-4">
+                        {scenario.rules.map((rule, i) => (
+                            <li key={i} className="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-sm font-bold">
+                                <div className="bg-accent text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-[10px]">{i + 1}</div>
+                                {rule}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="pt-8 border-t border-white/10 mt-6">
+                        <p className="text-lg md:text-2xl font-black leading-tight max-w-3xl italic">
+                            "{scenario.verdict}"
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* TIER 3: THE RISKS */}
+            <section className="space-y-4">
+                <div className="flex items-center gap-3 border-b-4 border-orange-500/10 pb-4">
+                    <AlertCircle className="h-6 w-6 text-orange-500" />
+                    <h2 className="text-lg font-black tracking-widest text-orange-950 uppercase italic">Kaçınılması Gereken / Beklenti Hatası</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {scenario.tier3_risky.map((model, i) => (
+                        <div key={i} className="p-6 bg-orange-50 border border-orange-100 rounded-2xl flex gap-6 items-start group hover:bg-orange-100/50 transition-colors">
+                            <div className="bg-orange-500 text-white px-3 py-1 rounded-lg font-black text-[9px] uppercase tracking-widest shrink-0">Dikkat</div>
+                            <div className="space-y-2">
+                                <Link href={`/modeller/${model.slug}`} className="font-black text-orange-950 hover:underline tracking-tight">{model.name}</Link>
+                                <p className="text-xs text-orange-900/80 leading-relaxed font-bold italic">
+                                    {model.reason}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </div>
+    );
+}

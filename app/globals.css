@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F9FAFB;
+  --foreground: #111827;
+  --accent: #3B82F6;
+  --status-best: #F0FDF4;
+  --status-avoid: #FFF7ED;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-status-best: var(--status-best);
+  --color-status-avoid: var(--status-avoid);
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .insight-block {
+    @apply border-l-4 border-accent pl-4 py-2 my-4 bg-white/50;
+  }
+  
+  .bento-box {
+    @apply border border-gray-200 rounded-lg p-6 bg-white shadow-sm transition-all duration-200;
+  }
+  
+  .bento-box:hover {
+    @apply -translate-y-1 shadow-md;
+  }
+}
