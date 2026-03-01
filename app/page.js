@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, ShieldCheck, Zap, BarChart3, Info } from "lucide-react";
 
 export const metadata = {
