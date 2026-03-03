@@ -7,6 +7,17 @@ export const metadata = {
     alternates: {
         canonical: "/modeller",
     },
+    openGraph: {
+        title: "Hava Temizleyici Modelleri & Analizleri | Hava Lab",
+        description: "Piyasadaki en popüler hava temizleme cihazlarını teknik specs yerine gerçek kullanım verileriyle inceleyin.",
+        url: "https://havatemizleyicileri.com/modeller",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Hava Temizleyici Modelleri & Analizleri | Hava Lab",
+        description: "Piyasadaki en popüler hava temizleme cihazlarını teknik specs yerine gerçek kullanım verileriyle inceleyin.",
+    },
 };
 
 const models = [

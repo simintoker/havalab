@@ -3,6 +3,20 @@ import { ShieldCheck, Info, FlaskConical, Target, MessageSquare } from "lucide-r
 export const metadata = {
     title: "Lab & Manifesto | Neden Hava Lab?",
     description: "Hava temizleyici seçiminde neden biz? Veri odaklı, yansız ve kullanıcı yorumu analizli laboratuvar manifestomuz.",
+    alternates: {
+        canonical: "/lab",
+    },
+    openGraph: {
+        title: "Lab & Manifesto | Neden Hava Lab?",
+        description: "Hava temizleyici seçiminde neden biz? Veri odaklı, yansız ve kullanıcı yorumu analizli laboratuvar manifestomuz.",
+        url: "https://havatemizleyicileri.com/lab",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Lab & Manifesto | Neden Hava Lab?",
+        description: "Hava temizleyici seçiminde neden biz? Veri odaklı, yansız ve kullanıcı yorumu analizli laboratuvar manifestomuz.",
+    },
 };
 
 export default function LabPage() {

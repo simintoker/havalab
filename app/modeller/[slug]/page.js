@@ -16,10 +16,25 @@ export async function generateMetadata({ params }) {
         "philips-1000-ac1711": "Philips 1000 AC1711 İncelemesi | Stabil ve Sessiz"
     };
 
+    const title = titles[slug] || "Hava Temizleyici Model İncelemesi";
+    const description = "Piyasadaki popüler hava temizleyici modellerini teknik specs yerine gerçek kullanım verileriyle inceleyin.";
+
     return {
-        title: titles[slug] || "Hava Temizleyici Model İncelemesi",
+        title,
+        description,
         alternates: {
             canonical: `/modeller/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `https://havatemizleyicileri.com/modeller/${slug}`,
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
         },
     };
 }

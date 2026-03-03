@@ -7,6 +7,17 @@ export const metadata = {
     alternates: {
         canonical: "/senaryolar",
     },
+    openGraph: {
+        title: "Evinize Göre Hava Temizleyici Seçin | Senaryo Bazlı Rehber",
+        description: "Sigara, evcil hayvan, alerji veya büyük salon… Hangi cihazın gerçekten işe yaradığını senaryonuza göre öğrenin.",
+        url: "https://havatemizleyicileri.com/senaryolar",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Evinize Göre Hava Temizleyici Seçin | Senaryo Bazlı Rehber",
+        description: "Sigara, evcil hayvan, alerji veya büyük salon… Hangi cihazın gerçekten işe yaradığını senaryonuza göre öğrenin.",
+    },
 };
 
 const scenarios = [

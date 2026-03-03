@@ -20,6 +20,35 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    title: "Hava Lab | Senaryo Bazlı Hava Temizleyici Rehberi",
+    description: "Eviniz için doğru hava temizleyiciyi teknik özelliklere bakarak değil, gerçek kullanım senaryosuna göre seçin.",
+    url: "https://havatemizleyicileri.com",
+    siteName: "Hava Lab",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hava Lab | Senaryo Bazlı Hava Temizleyici Rehberi",
+    description: "Eviniz için doğru hava temizleyiciyi teknik özelliklere bakarak değil, gerçek kullanım senaryosuna göre seçin.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    "revisit-after": "1 day",
+  }
 };
 
 export default function RootLayout({ children }) {

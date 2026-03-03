@@ -3,9 +3,20 @@ import { ArrowRight, Check, X, Minus, ShieldCheck, AlertCircle, Info } from "luc
 
 export const metadata = {
     title: "Hava Temizleyici Karşılaştırma Matrisi | Karar Masası",
-    description: "Modelleri yan yana geterin ve koku, duman, sessizlik performanslarını tek bir tabloda karşılaştırın.",
+    description: "Modelleri yan yana getirin ve koku, duman, sessizlik performanslarını tek bir tabloda karşılaştırın.",
     alternates: {
         canonical: "/karsilastirma",
+    },
+    openGraph: {
+        title: "Hava Temizleyici Karşılaştırma Matrisi | Karar Masası",
+        description: "Modelleri yan yana getirin ve koku, duman, sessizlik performanslarını tek bir tabloda karşılaştırın.",
+        url: "https://havatemizleyicileri.com/karsilastirma",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Hava Temizleyici Karşılaştırma Matrisi | Karar Masası",
+        description: "Modelleri yan yana getirin ve koku, duman, sessizlik performanslarını tek bir tabloda karşılaştırın.",
     },
 };
 

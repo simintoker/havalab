@@ -12,10 +12,25 @@ export async function generateMetadata({ params }) {
         "mutfak-kokusu": "Mutfak ve Yemek Kokusu İçin Hava Temizleyici | Gerçekçi Beklentiler"
     };
 
+    const title = titles[slug] || "Hava Temizleyici Senaryo Rehberi";
+    const description = "Evinizdeki gerçek ihtiyaca göre en doğru hava temizleyici modelini seçin. Hava Lab analizleri burada.";
+
     return {
-        title: titles[slug] || "Hava Temizleyici Senaryo Rehberi",
+        title,
+        description,
         alternates: {
             canonical: `/senaryolar/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `https://havatemizleyicileri.com/senaryolar/${slug}`,
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
         },
     };
 }

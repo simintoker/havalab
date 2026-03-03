@@ -7,6 +7,17 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    title: "Hangi Hava Temizleyici Bana Uygun? | Senaryoya Göre Karar Rehberi",
+    description: "Eviniz için doğru hava temizleyiciyi teknik özelliklere bakarak değil, gerçek kullanım senaryosuna göre seçin. Hızlı karar rehberi burada.",
+    url: "https://havatemizleyicileri.com",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hangi Hava Temizleyici Bana Uygun? | Senaryoya Göre Karar Rehberi",
+    description: "Eviniz için doğru hava temizleyiciyi teknik özelliklere bakarak değil, gerçek kullanım senaryosuna göre seçin. Hızlı karar rehberi burada.",
+  },
 };
 
 const featuredScenarios = [
