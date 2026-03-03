@@ -8,5 +8,9 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Claude-WebCrawler
 Allow: /
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Keywords
+Allow: /
 
 Sitemap: https://havatemizleyicileri.com/sitemap.xml
